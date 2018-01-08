@@ -1,7 +1,10 @@
 public class Functions1 {
 
 
-
+    private Function<Function<Integer, Integer>,
+            Function<Function<Integer, Integer>,
+                    Function<Integer, Integer>>> compose =
+            x -> y -> z -> x.apply(y.apply(z));
 public static void main(String [] args)
 {
 
@@ -10,8 +13,13 @@ public static void main(String [] args)
 
     Functions1 f1=new Functions1();
     System.out.println(combine(doubleNumber,tripleNumber).apply(5));
-    System.out.print(f1.add.apply(4).apply(3));
+    System.out.println(f1.add.apply(4).apply(3));
 
+    Function<Integer, Integer> triple = x -> x * 3;
+    Function<Integer, Integer> square = x -> x * x;
+
+    Function<Integer,Integer> f=f1.compose.apply(square).apply(triple);
+    System.out.println(f.apply(12));
 
 }
 
