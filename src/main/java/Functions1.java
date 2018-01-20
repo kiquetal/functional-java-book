@@ -3,9 +3,13 @@ public class Functions1 {
 
     private Function<Function<Integer, Integer>,
             Function<Function<Integer, Integer>,
-                    Function<Integer, Integer>>> compose =
-            x -> y -> z -> x.apply(y.apply(z));
-public static void main(String [] args)
+                    Function<Integer, Integer>>> compose;
+
+    {
+        compose = x -> y -> z -> x.apply(y.apply(z));
+    }
+
+    public static void main(String [] args)
 {
 
     Function<Integer,Integer>doubleNumber =args1 -> args1*2;
@@ -37,7 +41,7 @@ private static Function<Integer,Integer> combine(Function<Integer, Integer> f1, 
 
     }
 
-    private BinaryOperator       add = x -> y -> x + y;
+    private BinaryOperator add = x -> y -> x + y;
     private BinaryOperator mult = x -> y -> x * y;
 
     interface Function <T,U>
